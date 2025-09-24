@@ -1,0 +1,14 @@
+This query uses a subquery to first calculate the average salary of all employees and then filters the results in the outer query.
+
+SELECT
+    Employee_Name,
+    Salary
+FROM
+    Employee_Details
+WHERE
+    Salary > (
+        SELECT
+            AVG(Salary)
+        FROM
+            Employee_Details
+    );
