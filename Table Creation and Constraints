@@ -1,0 +1,9 @@
+The CREATE TABLE statement for the Employee Database with the specified constraints is as follows.
+
+CREATE TABLE Employee_Details (
+    Employee_ID INT PRIMARY KEY,
+    Employee_Name VARCHAR(255) NOT NULL,
+    Department_ID INT,
+    Salary DECIMAL(10, 2) CHECK (Salary > 5000),
+    FOREIGN KEY (Department_ID) REFERENCES Departments(Department_ID)
+);
