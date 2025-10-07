@@ -1,0 +1,24 @@
+CREATE TABLE Employee_Details (
+    Employee_ID INT PRIMARY KEY,
+    Employee_Name VARCHAR(255) NOT NULL,
+    Department_ID INT,
+    Salary DECIMAL(10, 2) CHECK (Salary > 5000),
+    FOREIGN KEY (Department_ID) REFERENCES Departments(Department_ID)
+);
+
+SELECT
+    Employee_ID,
+    Employee_Name,
+    Salary
+FROM
+    Employee_Details
+WHERE
+    Salary > 50000 AND Department_ID = (
+        SELECT
+            Department_ID
+        FROM
+            Departments
+        WHERE
+            Dept_Name = 'Finance'
+    );
+
