@@ -1,0 +1,40 @@
+SELECT
+    C.City,
+    SUM(S.Amount) AS Total_Sales_Amount
+FROM
+    Sales AS S
+INNER JOIN
+    Customer AS C
+ON
+    S.Customer_ID = C.Customer_ID
+GROUP BY
+    C.City
+ORDER BY
+    Total_Sales_Amount DESC;
+
+
+SELECT
+    C.Name,
+    SUM(S.Amount) AS Total_Amount_Spent
+FROM
+    Sales AS S
+INNER JOIN
+    Customer AS C
+ON
+    S.Customer_ID = C.Customer_ID
+GROUP BY
+    C.Name
+ORDER BY
+    Total_Amount_Spent DESC
+LIMIT 3;
+
+
+SELECT
+    Product_ID,
+    AVG(Amount) AS Average_Sales_Amount
+FROM
+    Sales
+GROUP BY
+    Product_ID
+ORDER BY
+    Product_ID;
