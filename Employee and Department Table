@@ -1,0 +1,34 @@
+SELECT
+    Employee_Name,
+    Salary
+FROM
+    Employee_Details
+WHERE
+    Salary > (
+        SELECT
+            AVG(Salary)
+        FROM
+            Employee_Details
+    );
+
+
+SELECT
+    E.Employee_Name,
+    D.Dept_Name
+FROM
+    Employee_Details AS E
+INNER JOIN
+    Departments AS D
+ON
+    E.Department_ID = D.Department_ID;
+
+
+SELECT
+    E.Employee_Name,
+    D.Dept_Name
+FROM
+    Employee_Details AS E
+LEFT JOIN
+    Departments AS D
+ON
+    E.Department_ID = D.Department_ID;
